@@ -1,6 +1,0 @@
-第3个服务消费者 工程
-在为该服务消费者提供了"hystrix"熔断器的基础上:
-添加了hystrix监控工具: Hystrix Dashboard 和 Turbine.
-
-对应工程:springBoot-node7-serviceConsumer3-hystrix-dashboard 工程
-

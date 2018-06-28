@@ -101,6 +101,8 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/testPermsAndRoles", "perms[delete],roles[admin]");
         // 注意,也可以用通配符,来一次性控制某个controller下的所有handler!(暂无该controller的代码)
         filterChainDefinitionMap.put("/testController/**", "authc,perms[user:edit]");
+        // 亲测:第一参不是Controller的类名,而是类名上头的@RequestMapping中的根url.
+        filterChainDefinitionMap.put("/helloWorldController/**", "authc,perms[add]");
         // 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边,否则会全部拦截导致代码不好使了;
         // 除了上面定义的url之外,其余全部url全都拦截!
         // 当在MyShiroRealm中通过登录认证后,这些拦截的资源才可见.(没加其他权限控制的前提下).
@@ -141,6 +143,7 @@ public class ShiroConfiguration {
 
     /**
      * 4.注入shiro-ehcache缓存bean
+     * 由于在加入此缓存后,热重启出现了错误,暂时注掉.
      *
      * @return EhCacheManager
      * @author cj

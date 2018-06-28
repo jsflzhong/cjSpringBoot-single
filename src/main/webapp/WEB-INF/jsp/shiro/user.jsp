@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>${message }</h1>
-<h1>用户列表--<a href="${pageContext.request.contextPath }/logout">退出登录</a></h1>
+<h1>用户列表(登录成功后要跳转的资源url)--<a href="${pageContext.request.contextPath }/logout">退出登录</a></h1>
 <h2>权限列表</h2>
 <shiro:authenticated>用户已经登录显示此内容<br/></shiro:authenticated><br/>
 

@@ -1,5 +1,0 @@
-第2个服务消费者 工程
-为该服务消费者提供了"hystrix"熔断器.
-
-对应工程:springBoot-node6-serviceConsumer2-hystrix 工程
-

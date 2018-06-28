@@ -124,6 +124,8 @@
         com/michael/springBoot/controller/HelloWorldController.java
         注意: 有jsp时,项目启动方式要更换为用命令行启动: mvn spring-boot:run. 如果还沿用之前的main启动方式,会报错找不到jsp.
         已通过测试.
+        测试url:
+        http://localhost:8080/testJsp?sayHi=hello%20there!
 
     11>.完善配置:
         把大多数配置都转移进spring推荐的yml文件: application.yml
@@ -150,7 +152,7 @@
             实现: com/michael/springBoot/service/TSBaseUserServiceImpl.java
         7).测试:
             com/michael/springBoot/controller/HelloWorldController.java
-            继承自父类接口中的save,selectByKey,delete,updateNotNull都已测试.
+            继承自父类接口中的save,selectByKey,delete,updateNotNull都已测试.(注意:table是jx的t_s_base_use,并没保留sql文件)
             子类中自定义的方法getUserById已测.
             注意:
             使用了这种父类dao+父类Service的方式构建的项目后,必须让之前老的dao和service接口也实现两个父类接口.
@@ -189,7 +191,7 @@
         4).其他自定义类:
             1.com/michael/springBoot/controller/ShiroController.java  测试shiro的Controller. 内含六个handler.
             2.五张表对应的domain,dao,mapper文件. 例如domain为: User/UserRole/Role/RolePermission/Permission.
-            3.
+            3.table见sql文件.
         5).jsp:
             WEB-INF/jsp/403.jsp   没权限跳转页
             WEB-INF/jsp/login.jsp  登录页
@@ -285,6 +287,8 @@
     2>.通过maven命令行启动的项目,启动很慢,可以通过controller访问jsp页面,但无法点击停止按钮来真正停止JVM并释放端口.
         --已解决: 见笔记: 36.亲测maven+debug功能
         --新问题: 该模式下,控制台无法显示log.
+
+    3>.springboot项目打war包并测试.
 
 
 

@@ -93,10 +93,11 @@ public class MyShiroRealm extends AuthorizingRealm {
      * @author cj
      */
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
+            throws AuthenticationException {
         //获取用户的输入的账号.
         String username = (String) authenticationToken.getPrincipal();
-        logger.info("com.michael.springBoot.tools.MyShiroRealm.doGetAuthenticationInfo: " + authenticationToken.getCredentials());
+        logger.info("authenticationToken.getCredentials(): " + authenticationToken.getCredentials());
         //查出是否有此用户
         User user = getUserByUsername(username);
         if (user != null) {

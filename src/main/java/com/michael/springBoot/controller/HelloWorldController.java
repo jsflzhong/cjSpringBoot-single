@@ -20,6 +20,7 @@ import java.util.UUID;
  * @date 2018/3/21
  */
 @Controller
+@RequestMapping("helloWorldController")
 public class HelloWorldController {
 
     //测试配置类.
