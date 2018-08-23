@@ -3,6 +3,8 @@ package myTest.testException;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.util.StringUtils;
 
+import javax.xml.bind.UnmarshalException;
+
 /**
  * Created by jsflz
  * Test how exception system works.
@@ -47,8 +49,12 @@ public class TestException {
             System.out.println("@@@Java RuntimeException");
             System.out.println("@@@异常信息:" + e.getMessage());
             System.out.println("@@@异常堆栈:" + ExceptionUtils.getStackTrace(e));
-        } catch (Exception e) {
+        } catch (UnmarshalException e) { //尝试抓java自己的非检查异常,例如除零异常.--成功抓到!
             System.out.println("@@@Java Exception");
+            System.out.println("@@@异常信息:" + e.getMessage());
+            System.out.println("@@@异常堆栈:" + ExceptionUtils.getStackTrace(e));
+        }catch (Exception e) {
+            System.out.println("@@@Java Exception father!!");
             System.out.println("@@@异常信息:" + e.getMessage());
             System.out.println("@@@异常堆栈:" + ExceptionUtils.getStackTrace(e));
         }
@@ -66,12 +72,15 @@ public class TestException {
      * @param hook 客户端传递的hook
      * @author cj
      */
-    public static void testException1(String hook) {
+    public static void testException1(String hook) throws UnmarshalException {
         if (StringUtils.isEmpty(hook)) {
             throw new MyException1("@@@参数hook不能为空!");
         }
         if ("test1".equals(hook)) {
             throw new MyException2("@@@参数不能为\"test1\"");
+        }
+        if("UnmarshalException".equals(hook)) {
+            throw new UnmarshalException("发生UnmarshalException!!!");
         }
         if (!"good".equals(hook)) {
             throw new MyException3("@@@参数不正确,正确的参数应该是的:\"good\"");
@@ -81,6 +90,6 @@ public class TestException {
     }
 
     public static void main(String[] args) {
-        handException("good1");
+        handException("UnmarshalException");
     }
 }

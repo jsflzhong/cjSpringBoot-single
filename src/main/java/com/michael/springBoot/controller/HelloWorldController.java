@@ -10,8 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.WebApplicationContext;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.UUID;
 
 /**
@@ -188,6 +191,19 @@ public class HelloWorldController {
             return "success";
         }
         return "fail";
+    }
+
+    @Autowired
+    private ServletContext servletContext;
+    @Autowired
+    private WebApplicationContext webApplicationContext;
+
+    @RequestMapping("/testPath")
+    @ResponseBody
+    public String testPath() {
+        String realPath = servletContext.getRealPath(File.separator);
+        System.out.println("@@@@@@realPath:" + realPath);
+        return realPath;
     }
 
 

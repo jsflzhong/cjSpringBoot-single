@@ -20,7 +20,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     private UserMapper userDao;
 
     public User getUserById(int userId) {
-        return userDao.selectByPrimaryKey(userId);
+        return userDao.selectByPrimaryKey(userId + "");
     }
 
     public boolean addUser(User user) {
