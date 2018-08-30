@@ -1,4 +1,4 @@
-package myTest.TestDesignPattern.TestEventBus;
+package myTest.Guava.testEventBus;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
