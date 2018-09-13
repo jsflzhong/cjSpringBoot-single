@@ -1,6 +1,8 @@
 package myTest;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -63,6 +65,23 @@ public class TestTime {
         return cal.getTime();
     }
 
+    public static void getUTCTime() {
+        Date date = new Date();
+        //SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sssZ");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        String str = df.format(date);
+        System.out.println(str);
+        try {
+            Date date2 = df.parse(str);
+            System.out.println(date2);
+            Date date1 = new Date();
+            System.out.println(date1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void main(String[] args) {
         //TestTime.test1();
         /**
@@ -78,10 +97,13 @@ public class TestTime {
          减一天后的天时间 : Mon Jun 18 16:50:34 CST 2018
          */
 
-        addMillis();
+        //addMillis();
         /**
          nowTime : 2018-06-25 14:06:23.673
          nextTime 5 seconds later: 2018-06-25 14:06:28.687
          */
+
+
+        getUTCTime();
     }
 }
