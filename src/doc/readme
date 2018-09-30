@@ -241,6 +241,7 @@
 
 8.添加两种缓存的demo.
 
+9.Add test for CompletableFuture and Stream.
 
 
 
