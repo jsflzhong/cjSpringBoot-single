@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
  * 作用:一条线程A调用await()进入阻塞,等其他线程都调用闭锁的countDown()把闭锁内的计数器清零后,该线程A醒来继续执行.
  * API:
  *  countDownLatch.await() - 阻塞当前线程,直到countDownLatch中的闭锁计数器清零后才会醒来.
- *  countDownLatch.countDown() - 把闭锁的计数器减一.
+ *  countDownLatch.countDown() - 把闭锁的计数器减一.(栅栏中不用这个,所以栅栏更优秀)
  */
 public class TestCountDownLatch {
 

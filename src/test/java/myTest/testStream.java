@@ -77,7 +77,7 @@ public class testStream {
     public static void test3() {
         ArrayList<String> list1 = Lists.newArrayList("a", "b");
 
-        //这两行可以链式整合成一行. 这样写只是为了看的明白,第一行返回的是Stream流!
+        //这两行可以链式整合成一行. 这样写只是为了看的明白,第一行返回的是Stream流!(注意,不用定义一个外部list然后在这里把结果放入那个list,因为下一行的api就是干这个的.)
         Stream<String> stream = list1.stream().map(String::toUpperCase);
         List<String> list2 = stream.collect(Collectors.toList()); //这里当然也可以调用上面提到过的api,把list1转成Array,Set,或String.
 
