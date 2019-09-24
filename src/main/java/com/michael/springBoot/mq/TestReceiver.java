@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 //This name should be as same as the config in the mq sender!
-@RabbitListener(queues = "spirng-boot-rabbitmq")
+//@RabbitListener(queues = "spirng-boot-rabbitmq")
 public class TestReceiver {
 
     @RabbitHandler
